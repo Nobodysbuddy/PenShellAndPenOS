@@ -39,7 +39,7 @@ while True:
     elif command == "penos":
         print("Entering PenOS...")
         gotAccess = input("PenOS is only aviliable To Developers Right Now. Please Type PenDev Pass To Continue: ")
-        if gotAccess == "Spc123@pen123":
+        if gotAccess == "a":
             print("Welcome...")
             print("Launching PenOS DevCreate...")
             exec(open("Core/PenOS/src/__init__.py").read())
