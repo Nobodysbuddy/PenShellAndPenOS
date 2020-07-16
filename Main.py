@@ -1,10 +1,10 @@
-
+import requests
 
 print("\n\n                 Welcome To PenShell! ")
 print("------------------------------------------------------\n\n")
 
 imp = {'commands': [], 'packName': "PenShell", 'username': ""}
-imp['commands'] = ["echo", "launch", "view", "setpass", "penos"]
+imp['commands'] = ["echo", "launch", "view", "setpass", "penos", "nav", "update", "fetch", "cmd"]
 
 imp['username'] = input("Type Your Username for this session: ")
 print("Hello, " + imp['username'])
@@ -38,18 +38,34 @@ while True:
         print("Sorry, but the setpass feature is not aviliable is this version, it may come in later versions.")
     elif command == "penos":
         print("Entering PenOS...")
-        gotAccess = input("PenOS is only aviliable To Developers Right Now. Please Type PenDev Pass To Continue: ")
-        if gotAccess == "a":
-            print("Welcome...")
-            print("Launching PenOS DevCreate...")
-            exec(open("Core/PenOS/src/__init__.py").read())
-            print("    PenOS DevCreate Ended, You Are Back In PenShell.")
-            print("---------------------------------------------------------\n")
-        else:
-            print("Wrong Credentials!")
-            
+        print("Welcome...")
+        exec(open("Core/PenOS/src/__init__.py").read())
+        print("    PenOS Ended, You Are Back In PenShell.")
+        print("---------------------------------------------------------\n")
+    elif command == "nav":
+        print("Fetching Module 'nav'...")
+        print("Starting PenNavigator!")
+        exec(open('Core/PenNavigator/nav.py').read())
+        print("------------------- PenNavigator Ended, You Are Back In PenShell--------------------------------")
+    elif command == "update":
+        print("Updating PenShell...")
+        insreq = requests.get('https://penshellpenos.firebaseio.com/.json')
+        print("Update Request Code: " + str(insreq.status_code))
+        print("Update Done...")
+        print("Update Details: \n" + insreq.text)
+        print("Thanks For Updating, Hope You Like PenShell!")
+    elif command == "fetch":
+        tofetch = input("What To Fetch: ")
+        if tofetch == "pendata":
+            print(str(imp))
+        if tofetch == "modules":
+            print("this feature will come soon...")
+    elif command == "cmd":
+        print("Feature Coming Soon")
     else:
         print("unknown command!")
+
+print("Bye!!! :)")
 
 
     
