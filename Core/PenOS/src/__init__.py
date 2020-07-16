@@ -146,6 +146,6 @@ while True:
         print("WARN: Pencode Next is depricated, please switch to builderlang.")
         todo = input(">>> ")
         pencode(todo)
-        print("\n-----------------------------------------\nDeprecatedError:\nCompiler.py: Line <165>:\npen.getStdout(\"pen.recent.outCall\", pen.init(requestor=stdin, call=next.recent()))\nModule next.recent() is Depricated, Try builder.utils.recent() instead\n-----------------------------------------\n")
+        print('sorry, compiler isnt aviliable.')
     elif command == "quit":
         break
