@@ -41,7 +41,9 @@ while True:
             print("Error: Cant Show Data ( 404: Data Not Found )")
         where += '/' + command
     elif command == "setpass":
-        print("Sorry, but the setpass feature is not aviliable is this version, it may come in later versions.")
+        os.path.exists("pass.penshelldata")
+        passfile = open("pass.penshelldata", "w")
+        passfile.write(input("Password:"))
         where += '/' + command
     elif command == "penos":
         print("Entering PenOS...")
